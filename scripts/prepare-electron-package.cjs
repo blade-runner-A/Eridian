@@ -18,7 +18,7 @@ fs.rmSync(path.join(targetDir, 'node_modules'), { force: true, recursive: true }
 console.log('Installing production dependencies for Next.js standalone server...')
 
 const { execSync } = require('node:child_process')
-execSync('npm install --omit=dev --no-package-lock', { cwd: targetDir, stdio: 'inherit' })
+execSync('bun install --production', { cwd: targetDir, stdio: 'inherit' })
 
 console.log('Removing package.json to prevent electron-builder from pruning node_modules...')
 fs.rmSync(path.join(targetDir, 'package.json'), { force: true })

@@ -732,15 +732,28 @@ export function Sketchboard() {
           </div>
         </div>
       )}
-      <header className="eridian-titlebar" aria-label="Eridian">
-        <div className="eridian-titlebar__brand">
-          <img className="eridian-titlebar__logo" src="/icon.svg" alt="" aria-hidden="true" />
-          <span>Eridian</span>
+      {platform !== 'web' && (
+        <header className="eridian-titlebar" aria-label="Eridian">
+          <div className="eridian-titlebar__brand">
+            <img className="eridian-titlebar__logo" src="/icon.svg" alt="" aria-hidden="true" />
+            <span>Eridian</span>
+          </div>
+          <div className="eridian-titlebar__actions">
+            <PwaInstallButton />
+          </div>
+        </header>
+      )}
+      {platform === 'web' && (
+        <div className="eridian-web-side-brand">
+          <div className="eridian-web-side-brand__inner">
+            <img className="eridian-web-side-brand__logo" src="/icon.svg" alt="" aria-hidden="true" />
+            <span className="eridian-web-side-brand__text">Eridian</span>
+          </div>
+          <div className="eridian-web-side-brand__actions">
+            <PwaInstallButton />
+          </div>
         </div>
-        <div className="eridian-titlebar__actions">
-          <PwaInstallButton />
-        </div>
-      </header>
+      )}
       <main className="eridian-canvas">
         <input
           ref={pdfInputRef}
