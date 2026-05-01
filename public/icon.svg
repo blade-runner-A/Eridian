@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <g transform="translate(96, 48)">
+    <!-- Glyph Accent -->
+    <polygon points="84,128 224,128 160,224 84,224" fill="#d8ff35" />
+    
+    <!-- Main Architecture -->
+    <path d="M 0 64 L 96 0 L 320 0 L 256 96 L 96 96 L 96 256 L 320 256 L 256 352 L 96 352 L 0 416 Z" fill="#111111" />
+    
+    <!-- Signal Accent -->
+    <polygon points="272,152 296,176 272,200 248,176" fill="#ff6b35" />
+  </g>
+</svg>

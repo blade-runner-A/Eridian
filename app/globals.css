@@ -1,0 +1,1385 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Source Code Pro', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .spectralboard {
+    --spectral-paper: #f4f1e8;
+    --spectral-panel: #fffdf4;
+    --spectral-panel-strong: #ffffff;
+    --spectral-ink: #111111;
+    --spectral-muted: #59554d;
+    --spectral-border: #111111;
+    --spectral-accent: #d8ff35;
+    --spectral-accent-alt: #ff6b35;
+    --spectral-blue: #72ddf7;
+    --spectral-shadow: 5px 5px 0 #111111;
+    background: var(--spectral-paper);
+  }
+
+  .eridian-shell {
+    display: flex;
+    flex-direction: column;
+    color: var(--spectral-ink);
+  }
+
+  .eridian-titlebar {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    flex: 0 0 auto;
+    align-items: end;
+    justify-content: space-between;
+    min-height: calc(34px + env(safe-area-inset-top));
+    padding: env(safe-area-inset-top) 14px 0;
+    background: #ffffff;
+    border-bottom: 2px solid var(--spectral-border);
+    color: var(--spectral-ink);
+    -webkit-app-region: drag;
+    user-select: none;
+  }
+
+  .spectralboard[data-eridian-theme='dark'] .eridian-titlebar {
+    background: #101010;
+    border-bottom-color: #f7f3e8;
+    color: #f7f3e8;
+  }
+
+  .spectralboard[data-eridian-platform='win32'] .eridian-titlebar,
+  .spectralboard[data-eridian-platform='linux'] .eridian-titlebar {
+    padding-right: 150px;
+  }
+
+  .spectralboard[data-eridian-platform='darwin'] .eridian-titlebar {
+    padding-left: 92px;
+  }
+
+  .eridian-titlebar__brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 34px;
+    min-width: 0;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 1;
+  }
+
+  .eridian-titlebar__actions {
+    display: flex;
+    align-items: center;
+    height: 34px;
+    padding-bottom: 4px;
+  }
+
+  .eridian-titlebar__logo {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 auto;
+    border-radius: 5px;
+  }
+
+  .eridian-canvas {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
+  .eridian-canvas .excalidraw {
+    height: 100%;
+  }
+
+  .eridian-pdf-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 6px 0 0;
+  }
+
+  .eridian-pdf-toolbar-slot {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 8px;
+  }
+
+  .spectralboard .excalidraw .App-toolbar__divider {
+    width: 2px;
+    height: 24px;
+    background: var(--spectral-border);
+    opacity: 0.3;
+  }
+
+  .eridian-pdf-toolbar-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 2px solid var(--spectral-border);
+    border-radius: 4px;
+    background: var(--spectral-panel-strong);
+    color: var(--spectral-ink);
+    box-shadow: 3px 3px 0 var(--spectral-border);
+    cursor: pointer;
+    transition: all 0.1s ease;
+  }
+
+  .eridian-pdf-toolbar-button:hover:not(:disabled) {
+    background: var(--spectral-accent);
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 var(--spectral-border);
+  }
+
+  .eridian-pdf-toolbar-button:active:not(:disabled) {
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0 var(--spectral-border);
+  }
+
+  .eridian-pdf-toolbar-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    box-shadow: none;
+  }
+
+  .eridian-pdf-toolbar-badge {
+    position: absolute;
+    bottom: -8px;
+    right: -8px;
+    background: var(--spectral-accent-alt);
+    color: white;
+    font-size: 9px;
+    padding: 1px 4px;
+    border: 1.5px solid var(--spectral-border);
+    border-radius: 4px;
+    font-weight: 800;
+    white-space: nowrap;
+    box-shadow: 2px 2px 0 var(--spectral-border);
+    z-index: 10;
+  }
+
+  .eridian-pdf-button {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    padding: 6px 10px;
+    border: 2px solid var(--spectral-border);
+    border-radius: 4px;
+    background: var(--spectral-panel-strong);
+    color: var(--spectral-ink);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.1;
+    box-shadow: 3px 3px 0 var(--spectral-border);
+    cursor: pointer;
+  }
+
+  .eridian-pdf-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    box-shadow: none;
+  }
+
+  .eridian-pdf-button__sub {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--spectral-muted);
+  }
+
+  @media (max-width: 720px) {
+    .spectralboard[data-eridian-platform='win32'] .eridian-titlebar,
+    .spectralboard[data-eridian-platform='linux'] .eridian-titlebar,
+    .spectralboard[data-eridian-platform='darwin'] .eridian-titlebar {
+      padding-right: max(12px, env(safe-area-inset-right));
+      padding-left: max(12px, env(safe-area-inset-left));
+    }
+  }
+
+  .spectralboard .excalidraw {
+    --color-primary: var(--spectral-accent) !important;
+    --color-primary-darker: #c6eb2e !important;
+    --color-primary-darkest: #111111 !important;
+    --color-primary-light: #e9ffc2 !important;
+    --color-promo: var(--spectral-accent) !important;
+    --default-border-color: var(--spectral-border);
+    --button-gray-1: #ffffff;
+    --button-gray-2: #f4f1e8;
+    --button-gray-3: #e4dfd0;
+    color: var(--spectral-ink);
+    background:
+      linear-gradient(#dfdacb 1px, transparent 1px),
+      linear-gradient(90deg, #dfdacb 1px, transparent 1px),
+      var(--spectral-paper);
+    background-size: 28px 28px;
+  }
+
+  .spectralboard .excalidraw .Island,
+  .spectralboard .excalidraw .dropdown-menu .dropdown-menu-container,
+  .spectralboard .excalidraw .Modal__content,
+  .spectralboard .excalidraw .Dialog,
+  .spectralboard .excalidraw .App-menu__left,
+  .spectralboard .excalidraw .App-mobile-menu,
+  .spectralboard .excalidraw .Toast,
+  .spectralboard .excalidraw .default-sidebar {
+    background: var(--spectral-panel);
+    border: 2px solid var(--spectral-border);
+    border-radius: 4px;
+    box-shadow: var(--spectral-shadow);
+    backdrop-filter: none;
+  }
+
+  .spectralboard .excalidraw .App-toolbar-container .ToolIcon__icon,
+  .spectralboard .excalidraw .ToolIcon__icon,
+  .spectralboard .excalidraw button.standalone,
+  .spectralboard .excalidraw .dropdown-menu-button,
+  .spectralboard .excalidraw .help-icon,
+  .spectralboard .excalidraw .buttonList label,
+  .spectralboard .excalidraw .buttonList button,
+  .spectralboard .excalidraw .sidebar__header__buttons button {
+    background: var(--spectral-panel-strong);
+    border: 2px solid var(--spectral-border);
+    border-radius: 4px;
+    color: var(--spectral-ink);
+    box-shadow: 3px 3px 0 var(--spectral-border);
+    transition:
+      background-color 120ms ease,
+      box-shadow 120ms ease,
+      transform 120ms ease;
+  }
+
+  .spectralboard .excalidraw .ToolIcon__icon:hover,
+  .spectralboard .excalidraw button.standalone:hover,
+  .spectralboard .excalidraw .dropdown-menu-button:hover,
+  .spectralboard .excalidraw .help-icon:hover,
+  .spectralboard .excalidraw .buttonList label:hover,
+  .spectralboard .excalidraw .buttonList button:hover,
+  .spectralboard .excalidraw .sidebar__header__buttons button:hover {
+    background: #d8ff35;
+    color: #050505;
+    box-shadow: 4px 4px 0 var(--spectral-border);
+    transform: translate(-1px, -1px);
+  }
+
+  .spectralboard .excalidraw .ToolIcon .ToolIcon_type_radio:checked + .ToolIcon__icon,
+  .spectralboard .excalidraw .ToolIcon .ToolIcon_type_checkbox:checked + .ToolIcon__icon,
+  .spectralboard .excalidraw .ToolIcon_type_button.ToolIcon--selected,
+  .spectralboard .excalidraw button.standalone.active,
+  .spectralboard .excalidraw .dropdown-menu-button.active,
+  .spectralboard .excalidraw .buttonList label.active,
+  .spectralboard .excalidraw .buttonList button.active,
+  .spectralboard .excalidraw .sidebar-tab-trigger[data-state=active] {
+    background: var(--spectral-accent);
+    border-color: var(--spectral-border);
+    color: oklch(0.18 0.04 232);
+    box-shadow: 2px 2px 0 var(--spectral-border);
+    transform: translate(1px, 1px);
+  }
+
+  .spectralboard .excalidraw .ToolIcon__icon svg,
+  .spectralboard .excalidraw button.standalone svg,
+  .spectralboard .excalidraw .dropdown-menu-button svg {
+    color: currentColor;
+    filter: none;
+  }
+
+  .spectralboard .excalidraw .App-toolbar__divider,
+  .spectralboard .excalidraw .divider {
+    background: var(--spectral-border);
+  }
+
+  .spectralboard .excalidraw .dropdown-menu .dropdown-menu-item,
+  .spectralboard .excalidraw .welcome-screen-menu-item,
+  .spectralboard .excalidraw .library-unit,
+  .spectralboard .excalidraw .layer-ui__result-item {
+    border-radius: 4px;
+    color: var(--spectral-ink);
+  }
+
+  .spectralboard .excalidraw .dropdown-menu .dropdown-menu-item:hover,
+  .spectralboard .excalidraw .welcome-screen-menu-item:hover,
+  .spectralboard .excalidraw .library-unit--hover,
+  .spectralboard .excalidraw .layer-ui__result-item:hover {
+    background: var(--spectral-blue);
+  }
+
+  .spectralboard .excalidraw input[type='text'],
+  .spectralboard .excalidraw textarea:not(.excalidraw-wysiwyg),
+  .spectralboard .excalidraw .TextInput,
+  .spectralboard .excalidraw .ExcTextField__input {
+    background: #ffffff;
+    border: 2px solid var(--spectral-border);
+    border-radius: 4px;
+    color: var(--spectral-ink);
+    box-shadow: 2px 2px 0 var(--spectral-border);
+  }
+
+  .spectralboard .excalidraw input[type='text']:focus,
+  .spectralboard .excalidraw textarea:not(.excalidraw-wysiwyg):focus {
+    border-color: var(--spectral-border);
+    box-shadow: 3px 3px 0 var(--spectral-accent-alt);
+  }
+
+  .spectralboard .excalidraw .color-picker__button.active-color,
+  .spectralboard .excalidraw .color-picker-swatch.active,
+  .spectralboard .excalidraw .picker-swatch.active {
+    box-shadow: 0 0 0 2px #ffffff, 0 0 0 5px var(--spectral-border), 4px 4px 0 var(--spectral-accent-alt);
+  }
+
+  .spectralboard .excalidraw-tooltip {
+    background: var(--spectral-ink);
+    border: 2px solid var(--spectral-ink);
+    border-radius: 4px;
+    color: white;
+    box-shadow: 4px 4px 0 var(--spectral-accent);
+  }
+
+  .spectralboard .excalidraw.theme--dark {
+    --color-primary: #d8ff35;
+    --color-primary-darker: #a6d900;
+    --color-primary-darkest: #050505;
+    --color-primary-light: #36470e;
+    --default-border-color: #f2f0e7;
+    --button-gray-1: #191919;
+    --button-gray-2: #252525;
+    --button-gray-3: #333333;
+    --spectral-paper: #101010;
+    --spectral-panel: #1a1a1a;
+    --spectral-panel-strong: #242424;
+    --spectral-ink: #f7f3e8;
+    --spectral-muted: #c5beaa;
+    --spectral-border: #f7f3e8;
+    --spectral-accent: #d8ff35;
+    --spectral-accent-alt: #ff7a3d;
+    --spectral-blue: #d8ff35;
+    --spectral-shadow: 5px 5px 0 #f7f3e8;
+    color: var(--spectral-ink);
+    background:
+      linear-gradient(#282828 1px, transparent 1px),
+      linear-gradient(90deg, #282828 1px, transparent 1px),
+      var(--spectral-paper);
+    background-size: 28px 28px;
+  }
+
+  .spectralboard .excalidraw.theme--dark .Island,
+  .spectralboard .excalidraw.theme--dark .dropdown-menu .dropdown-menu-container,
+  .spectralboard .excalidraw.theme--dark .Modal__content,
+  .spectralboard .excalidraw.theme--dark .Dialog,
+  .spectralboard .excalidraw.theme--dark .App-menu__left,
+  .spectralboard .excalidraw.theme--dark .App-mobile-menu,
+  .spectralboard .excalidraw.theme--dark .Toast,
+  .spectralboard .excalidraw.theme--dark .default-sidebar {
+    background: var(--spectral-panel);
+    border: 2px solid var(--spectral-border);
+    box-shadow: var(--spectral-shadow);
+    color: var(--spectral-ink);
+  }
+
+  .spectralboard .excalidraw.theme--dark .App-toolbar-container .ToolIcon__icon,
+  .spectralboard .excalidraw.theme--dark .ToolIcon__icon,
+  .spectralboard .excalidraw.theme--dark button.standalone,
+  .spectralboard .excalidraw.theme--dark .dropdown-menu-button,
+  .spectralboard .excalidraw.theme--dark .help-icon,
+  .spectralboard .excalidraw.theme--dark .buttonList label,
+  .spectralboard .excalidraw.theme--dark .buttonList button,
+  .spectralboard .excalidraw.theme--dark .sidebar__header__buttons button {
+    background: var(--spectral-panel-strong);
+    border: 2px solid var(--spectral-border);
+    color: var(--spectral-ink);
+    box-shadow: 3px 3px 0 var(--spectral-border);
+  }
+
+  .spectralboard .excalidraw.theme--dark .ToolIcon__icon:hover,
+  .spectralboard .excalidraw.theme--dark button.standalone:hover,
+  .spectralboard .excalidraw.theme--dark .dropdown-menu-button:hover,
+  .spectralboard .excalidraw.theme--dark .help-icon:hover,
+  .spectralboard .excalidraw.theme--dark .buttonList label:hover,
+  .spectralboard .excalidraw.theme--dark .buttonList button:hover,
+  .spectralboard .excalidraw.theme--dark .sidebar__header__buttons button:hover {
+    background: var(--spectral-blue);
+    color: #050505;
+    box-shadow: 4px 4px 0 var(--spectral-border);
+  }
+
+  .spectralboard .excalidraw.theme--dark .ToolIcon .ToolIcon_type_radio:checked + .ToolIcon__icon,
+  .spectralboard .excalidraw.theme--dark .ToolIcon .ToolIcon_type_checkbox:checked + .ToolIcon__icon,
+  .spectralboard .excalidraw.theme--dark .ToolIcon_type_button.ToolIcon--selected,
+  .spectralboard .excalidraw.theme--dark button.standalone.active,
+  .spectralboard .excalidraw.theme--dark .dropdown-menu-button.active,
+  .spectralboard .excalidraw.theme--dark .buttonList label.active,
+  .spectralboard .excalidraw.theme--dark .buttonList button.active,
+  .spectralboard .excalidraw.theme--dark .sidebar-tab-trigger[data-state=active] {
+    background: var(--spectral-accent);
+    border-color: var(--spectral-border);
+    color: #050505;
+    box-shadow: 2px 2px 0 var(--spectral-border);
+  }
+
+  .spectralboard .excalidraw.theme--dark .ToolIcon__icon svg,
+  .spectralboard .excalidraw.theme--dark button.standalone svg,
+  .spectralboard .excalidraw.theme--dark .dropdown-menu-button svg,
+  .spectralboard .excalidraw.theme--dark .help-icon svg {
+    color: currentColor;
+    opacity: 1;
+    stroke: currentColor;
+  }
+
+  .spectralboard .excalidraw.theme--dark .dropdown-menu .dropdown-menu-item,
+  .spectralboard .excalidraw.theme--dark .welcome-screen-menu-item,
+  .spectralboard .excalidraw.theme--dark .library-unit,
+  .spectralboard .excalidraw.theme--dark .layer-ui__result-item,
+  .spectralboard .excalidraw.theme--dark .panelColumn h3,
+  .spectralboard .excalidraw.theme--dark .panelColumn legend,
+  .spectralboard .excalidraw.theme--dark .panelColumn .control-label {
+    color: var(--spectral-ink);
+  }
+
+  .spectralboard .excalidraw.theme--dark .dropdown-menu .dropdown-menu-item:hover,
+  .spectralboard .excalidraw.theme--dark .welcome-screen-menu-item:hover,
+  .spectralboard .excalidraw.theme--dark .library-unit--hover,
+  .spectralboard .excalidraw.theme--dark .layer-ui__result-item:hover {
+    background: var(--spectral-blue);
+    color: #050505;
+  }
+
+  .spectralboard .excalidraw.theme--dark input[type='text'],
+  .spectralboard .excalidraw.theme--dark textarea:not(.excalidraw-wysiwyg),
+  .spectralboard .excalidraw.theme--dark .TextInput,
+  .spectralboard .excalidraw.theme--dark .ExcTextField__input {
+    background: #111111;
+    border: 2px solid var(--spectral-border);
+    color: var(--spectral-ink);
+    box-shadow: 2px 2px 0 var(--spectral-border);
+  }
+
+  .spectralboard .excalidraw.theme--dark input[type='text']:focus,
+  .spectralboard .excalidraw.theme--dark textarea:not(.excalidraw-wysiwyg):focus {
+    box-shadow: 3px 3px 0 var(--spectral-accent-alt);
+  }
+
+  .spectralboard .excalidraw.theme--dark .color-picker__button.active-color,
+  .spectralboard .excalidraw.theme--dark .color-picker-swatch.active,
+  .spectralboard .excalidraw.theme--dark .picker-swatch.active {
+    box-shadow: 0 0 0 2px #101010, 0 0 0 5px var(--spectral-border), 4px 4px 0 var(--spectral-accent);
+  }
+
+  .spectralboard .excalidraw.theme--dark + .excalidraw-tooltip,
+  .spectralboard .excalidraw-tooltip {
+    border-radius: 4px;
+  }
+
+  .spectralboard .excalidraw.theme--dark .App-toolbar,
+  .spectralboard .excalidraw.theme--dark .App-toolbar-content > .Island,
+  .spectralboard .excalidraw.theme--dark .App-toolbar-container,
+  .spectralboard .excalidraw.theme--dark .App-menu_top .Island,
+  .spectralboard .excalidraw.theme--dark .App-menu_bottom .Island {
+    background: #151515 !important;
+    border: 2px solid #f7f3e8 !important;
+    border-radius: 4px !important;
+    box-shadow: 6px 6px 0 #f7f3e8 !important;
+  }
+
+  .spectralboard .excalidraw.theme--dark .App-toolbar-container .ToolIcon__icon,
+  .spectralboard .excalidraw.theme--dark .ToolIcon .ToolIcon__icon,
+  .spectralboard .excalidraw.theme--dark .ToolIcon_type_button,
+  .spectralboard .excalidraw.theme--dark .main-menu-trigger,
+  .spectralboard .excalidraw.theme--dark .dropdown-menu-button,
+  .spectralboard .excalidraw.theme--dark .help-icon,
+  .spectralboard .excalidraw.theme--dark .reset-zoom-button,
+  .spectralboard .excalidraw.theme--dark .finalize-button {
+    background: #202020 !important;
+    border: 2px solid #f7f3e8 !important;
+    border-radius: 4px !important;
+    color: #f7f3e8 !important;
+    box-shadow: 3px 3px 0 #f7f3e8 !important;
+  }
+
+  /* Specific fix for scroll-back-to-content which uses transform for centering */
+  .spectralboard .excalidraw .scroll-back-to-content {
+    background: #ffffff !important;
+    border: 2px solid var(--spectral-border) !important;
+    border-radius: 4px !important;
+    color: var(--spectral-ink) !important;
+    box-shadow: 3px 3px 0 var(--spectral-border) !important;
+    transition: all 0.1s ease !important;
+  }
+
+  .spectralboard .excalidraw.theme--dark .scroll-back-to-content {
+    background: #202020 !important;
+    border: 2px solid #f7f3e8 !important;
+    color: #f7f3e8 !important;
+    box-shadow: 3px 3px 0 #f7f3e8 !important;
+  }
+
+  .spectralboard .excalidraw .scroll-back-to-content:hover {
+    background: var(--spectral-accent) !important;
+    color: #111111 !important;
+    transform: translateX(-50%) translate(-2px, -2px) !important;
+    box-shadow: 5px 5px 0 var(--spectral-border) !important;
+  }
+
+  .spectralboard .excalidraw.theme--dark .scroll-back-to-content:hover {
+    background: var(--spectral-accent) !important;
+    color: #050505 !important;
+    transform: translateX(-50%) translate(-2px, -2px) !important;
+    box-shadow: 5px 5px 0 #f7f3e8 !important;
+  }
+
+  /* Hotkey Labels (Numbers) */
+  .spectralboard .excalidraw .ToolIcon__keybinding,
+  .spectralboard .excalidraw .Island .Stack .ToolIcon__keybinding {
+    color: var(--spectral-ink) !important;
+    opacity: 0.4;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    font-weight: 800 !important;
+    margin-top: 1px !important;
+  }
+
+  .spectralboard .excalidraw.theme--dark .ToolIcon__keybinding {
+    color: #f7f3e8 !important;
+    opacity: 0.5;
+  }
+
+  /* Frosted Glass Modals (Command Palette, Search, etc.) */
+  .spectralboard .excalidraw .CommandPalette,
+  .spectralboard .excalidraw .SearchMenu,
+  .spectralboard .excalidraw .Modal__content,
+  .spectralboard .excalidraw .Dialog {
+    background: rgba(255, 255, 255, 0.6) !important;
+    backdrop-filter: blur(16px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(160%) !important;
+    border: 3px solid var(--spectral-border) !important;
+    box-shadow: 12px 12px 0 var(--spectral-border) !important;
+    border-radius: 8px !important;
+  }
+
+  .spectralboard .excalidraw.theme--dark .CommandPalette,
+  .spectralboard .excalidraw.theme--dark .SearchMenu,
+  .spectralboard .excalidraw.theme--dark .Modal__content,
+  .spectralboard .excalidraw.theme--dark .Dialog {
+    background: rgba(21, 21, 21, 0.6) !important;
+    backdrop-filter: blur(16px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(160%) !important;
+    border: 3px solid #f7f3e8 !important;
+    box-shadow: 12px 12px 0 #f7f3e8 !important;
+  }
+
+  /* Eridian Sidebar Theme (Search, Layers, etc.) */
+  .spectralboard .excalidraw .default-sidebar {
+    background: var(--spectral-panel) !important;
+    border-left: 4px solid var(--spectral-border) !important;
+    box-shadow: -8px 0 0 rgba(0,0,0,0.05) !important;
+  }
+
+  .spectralboard .excalidraw.theme--dark .default-sidebar {
+    background: #181818 !important;
+    border-left: 4px solid #f7f3e8 !important;
+    box-shadow: -8px 0 0 rgba(255,255,255,0.05) !important;
+  }
+
+  .spectralboard .excalidraw .default-sidebar .sidebar-header {
+    background: #ffffff !important;
+    border-bottom: 3px solid var(--spectral-border) !important;
+    padding: 12px 16px !important;
+  }
+
+  .spectralboard .excalidraw.theme--dark .default-sidebar .sidebar-header {
+    background: #222222 !important;
+    border-bottom: 3px solid #f7f3e8 !important;
+  }
+
+  .spectralboard .excalidraw .sidebar-trigger.active {
+    background: var(--spectral-accent) !important;
+    border: 2px solid var(--spectral-border) !important;
+    box-shadow: 2px 2px 0 var(--spectral-border) !important;
+  }
+
+  /* Accent Highlight for Search/Palette */
+  .spectralboard .excalidraw .layer-ui__result-item--selected,
+  .spectralboard .excalidraw .CommandPalette__item--selected,
+  .spectralboard .excalidraw .FilledButton--primary,
+  .spectralboard .excalidraw .sidebar-trigger.active,
+  .spectralboard .excalidraw .buttonList label.active,
+  .spectralboard .excalidraw .buttonList button.active {
+    background: var(--spectral-accent) !important;
+    color: #111111 !important;
+    border: 2px solid var(--spectral-border) !important;
+    box-shadow: 2px 2px 0 var(--spectral-border) !important;
+  }
+
+  .spectralboard .excalidraw .sidebar-trigger.active svg {
+    color: #111111 !important;
+  }
+
+  /* Catch-all for any remaining Excalidraw brand colors */
+  .spectralboard .excalidraw [class*="FilledButton--primary"],
+  .spectralboard .excalidraw .FilledButton--primary,
+  .spectralboard .excalidraw .sidebar-trigger.active,
+  .spectralboard .excalidraw .sidebar-trigger:hover,
+  .spectralboard .excalidraw .library-unit:hover,
+  .spectralboard .excalidraw .layer-ui__library-browse-button {
+    background-color: var(--spectral-accent) !important;
+    color: #111111 !important;
+    border: 2px solid var(--spectral-border) !important;
+  }
+
+  .spectralboard .excalidraw.theme--dark .App-toolbar-container .ToolIcon__icon:hover,
+  .spectralboard .excalidraw.theme--dark .ToolIcon .ToolIcon__icon:hover,
+  .spectralboard .excalidraw.theme--dark .ToolIcon_type_button:hover,
+  .spectralboard .excalidraw.theme--dark .main-menu-trigger:hover,
+  .spectralboard .excalidraw.theme--dark .dropdown-menu-button:hover,
+  .spectralboard .excalidraw.theme--dark .help-icon:hover,
+  .spectralboard .excalidraw.theme--dark .reset-zoom-button:hover,
+  .spectralboard .excalidraw.theme--dark .finalize-button:hover {
+    background: #d8ff35 !important;
+    color: #050505 !important;
+    box-shadow: 5px 5px 0 #f7f3e8 !important;
+    transform: translate(-2px, -2px) !important;
+  }
+
+  .spectralboard .excalidraw.theme--dark .ToolIcon .ToolIcon_type_radio:checked + .ToolIcon__icon,
+  .spectralboard .excalidraw.theme--dark .ToolIcon .ToolIcon_type_checkbox:checked + .ToolIcon__icon,
+  .spectralboard .excalidraw.theme--dark .ToolIcon_type_button.ToolIcon--selected,
+  .spectralboard .excalidraw.theme--dark .App-toolbar__extra-tools-trigger--selected,
+  .spectralboard .excalidraw.theme--dark .main-menu-trigger.active,
+  .spectralboard .excalidraw.theme--dark .dropdown-menu-button.active,
+  .spectralboard .excalidraw.theme--dark button.active {
+    background: #d8ff35 !important;
+    border: 2px solid #f7f3e8 !important;
+    color: #050505 !important;
+    box-shadow: 2px 2px 0 #f7f3e8 !important;
+    transform: translate(1px, 1px) !important;
+  }
+
+  .spectralboard .excalidraw.theme--dark .ToolIcon__icon svg,
+  .spectralboard .excalidraw.theme--dark .ToolIcon_type_button svg,
+  .spectralboard .excalidraw.theme--dark .main-menu-trigger svg,
+  .spectralboard .excalidraw.theme--dark .dropdown-menu-button svg,
+  .spectralboard .excalidraw.theme--dark .help-icon svg {
+    color: currentColor !important;
+    fill: none;
+    opacity: 1 !important;
+    stroke: currentColor !important;
+  }
+
+  .spectralboard .excalidraw.theme--dark .ToolIcon__keybinding {
+    background: #f7f3e8 !important;
+    border: 1px solid #050505 !important;
+    border-radius: 2px !important;
+    color: #050505 !important;
+    font-weight: 800 !important;
+  }
+
+  .spectralboard .excalidraw.theme--dark .dropdown-menu .dropdown-menu-container,
+  .spectralboard .excalidraw.theme--dark .App-menu__left {
+    background: #1b1b1b !important;
+    border: 2px solid #f7f3e8 !important;
+    border-radius: 4px !important;
+    box-shadow: 6px 6px 0 #f7f3e8 !important;
+  }
+
+  .spectralboard .excalidraw.theme--dark .dropdown-menu .dropdown-menu-item,
+  .spectralboard .excalidraw.theme--dark .dropdown-menu .dropdown-menu-item-base,
+  .spectralboard .excalidraw.theme--dark .dropdown-menu .dropdown-menu-group-title,
+  .spectralboard .excalidraw.theme--dark .panelColumn h3,
+  .spectralboard .excalidraw.theme--dark .panelColumn legend,
+  .spectralboard .excalidraw.theme--dark .panelColumn .control-label {
+    color: #f7f3e8 !important;
+  }
+
+  .spectralboard .excalidraw.theme--dark .dropdown-menu .dropdown-menu-item:hover,
+  .spectralboard .excalidraw.theme--dark .dropdown-menu.manual-hover .dropdown-menu-item:hover,
+  .spectralboard .excalidraw.theme--dark .dropdown-menu.manual-hover .dropdown-menu-item--hovered,
+  .spectralboard .excalidraw.theme--dark .dropdown-menu.manual-hover .dropdown-menu-item--selected {
+    background: #d8ff35 !important;
+    color: #050505 !important;
+  }
+
+  .spectralboard .excalidraw.theme--dark .dropdown-menu .dropdown-menu-item:hover svg,
+  .spectralboard .excalidraw.theme--dark .dropdown-menu.manual-hover .dropdown-menu-item--hovered svg,
+  .spectralboard .excalidraw.theme--dark .dropdown-menu.manual-hover .dropdown-menu-item--selected svg {
+    color: #050505 !important;
+    stroke: #050505 !important;
+  }
+
+  .spectralboard .excalidraw.theme--dark .color-picker__button,
+  .spectralboard .excalidraw.theme--dark .color-picker-swatch,
+  .spectralboard .excalidraw.theme--dark .picker-swatch {
+    border: 2px solid #f7f3e8 !important;
+    border-radius: 4px !important;
+    box-shadow: 2px 2px 0 #f7f3e8 !important;
+  }
+
+  .spectralboard .excalidraw:not(.theme--dark) .App-toolbar-container .ToolIcon__icon:hover,
+  .spectralboard .excalidraw:not(.theme--dark) .ToolIcon .ToolIcon__icon:hover,
+  .spectralboard .excalidraw:not(.theme--dark) .ToolIcon_type_button:hover,
+  .spectralboard .excalidraw:not(.theme--dark) .main-menu-trigger:hover,
+  .spectralboard .excalidraw:not(.theme--dark) .dropdown-menu-button:hover,
+  .spectralboard .excalidraw:not(.theme--dark) .help-icon:hover,
+  .spectralboard .excalidraw:not(.theme--dark) .reset-zoom-button:hover,
+  .spectralboard .excalidraw:not(.theme--dark) .scroll-back-to-content:hover,
+  .spectralboard .excalidraw:not(.theme--dark) .finalize-button:hover,
+  .spectralboard .excalidraw:not(.theme--dark) button.standalone:hover,
+  .spectralboard .excalidraw:not(.theme--dark) .buttonList label:hover,
+  .spectralboard .excalidraw:not(.theme--dark) .buttonList button:hover,
+  .spectralboard .excalidraw:not(.theme--dark) .sidebar__header__buttons button:hover {
+    background: #d8ff35 !important;
+    color: #050505 !important;
+    box-shadow: 5px 5px 0 #111111 !important;
+    transform: translate(-2px, -2px) !important;
+  }
+
+  .spectralboard .excalidraw .welcome-screen-center {
+    color: #9a96a3;
+  }
+
+  .spectralboard-welcome-logo {
+    position: relative;
+    display: grid;
+    width: 72px;
+    height: 72px;
+    place-items: center;
+    margin: 0 auto 14px;
+    filter: drop-shadow(5px 5px 0 var(--spectral-border));
+    transform: rotate(-4deg);
+  }
+
+  .spectralboard-welcome-logo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+  }
+
+  .spectralboard-welcome-title {
+    display: inline-block;
+    color: #111111;
+    font-family: 'Virgil', 'Excalifont', var(--font-sans);
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1;
+    text-shadow: 3px 3px 0 #fffdf4;
+    transform: rotate(-1deg);
+  }
+
+  .spectralboard-welcome-copy {
+    margin-top: 18px;
+    color: #aaa6b2;
+    font-family: 'Virgil', 'Excalifont', var(--font-sans);
+    text-align: center;
+  }
+
+  .spectralboard-welcome-copy p {
+    margin: 0 auto;
+    max-width: 34ch;
+    font-size: 1.05rem;
+    line-height: 1.25;
+  }
+
+  .spectralboard-welcome-features {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+
+  .spectralboard-welcome-features span {
+    color: #aaa6b2;
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  .spectralboard-welcome-features span::before {
+    content: '+';
+    margin-right: 7px;
+    color: var(--spectral-accent-alt);
+    font-weight: 700;
+  }
+
+  .spectralboard .excalidraw.theme--dark .spectralboard-welcome-title {
+    color: #d8ff35;
+    text-shadow: 3px 3px 0 #050505;
+  }
+
+  .spectralboard .excalidraw.theme--dark .spectralboard-welcome-copy,
+  .spectralboard .excalidraw.theme--dark .spectralboard-welcome-features span {
+    color: #aaa6b2;
+  }
+
+
+  .eridian-ai-assistant-root {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999999;
+    pointer-events: none;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .eridian-ai-sidebar {
+    pointer-events: auto;
+    width: 100%;
+    max-width: 440px;
+    height: 100%;
+    background: var(--spectral-panel);
+    border-left: 4px solid var(--spectral-border);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    animation: sidebar-slide-in 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes sidebar-slide-in {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+  }
+
+  .eridian-ai-sidebar__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(17, 17, 17, 0.15);
+    backdrop-filter: blur(4px);
+    pointer-events: auto;
+    z-index: -1;
+  }
+
+  .eridian-ai-sidebar__container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .eridian-ai-sidebar__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 20px;
+    border-bottom: 4px solid var(--spectral-border);
+    background: #ffffff;
+  }
+
+  .eridian-ai-sidebar__header span {
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    color: var(--spectral-ink);
+    text-transform: uppercase;
+  }
+
+  .eridian-ai-sidebar__close {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--spectral-muted);
+    border: 2px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .eridian-ai-sidebar__close:hover {
+    color: var(--spectral-ink);
+    border-color: var(--spectral-border);
+    background: #f0f0f0;
+  }
+
+  .eridian-ai-sidebar__content {
+    flex: 1;
+    padding: 32px 24px;
+    background: #f4f1e8;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+  }
+
+  .eridian-ai-sidebar__hint {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--spectral-muted);
+    font-weight: 600;
+  }
+
+  .eridian-ai-sidebar__form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .eridian-ai-sidebar__input-wrapper {
+    background: #ffffff;
+    border: 3px solid var(--spectral-border);
+    border-radius: 4px;
+    padding: 16px;
+    box-shadow: 8px 8px 0 var(--spectral-border);
+    transition: all 0.2s ease;
+  }
+
+  .eridian-ai-sidebar__input-wrapper:focus-within {
+    transform: translate(-2px, -2px);
+    box-shadow: 10px 10px 0 var(--spectral-accent-alt);
+  }
+
+  .eridian-ai-sidebar__input {
+    width: 100%;
+    min-height: 140px;
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    font-size: 16px;
+    font-weight: 700;
+    color: #111111 !important;
+    resize: vertical;
+    font-family: inherit;
+    line-height: 1.5;
+  }
+
+  .eridian-ai-sidebar__submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    background: var(--spectral-accent);
+    border: 3px solid var(--spectral-border);
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 900;
+    color: #111111;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    box-shadow: 8px 8px 0 var(--spectral-border);
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .eridian-ai-sidebar__submit:hover:not(:disabled) {
+    background: #e1ff5c;
+    transform: translate(-3px, -3px);
+    box-shadow: 11px 11px 0 var(--spectral-border);
+  }
+
+  .eridian-ai-sidebar__submit:active:not(:disabled) {
+    transform: translate(5px, 5px);
+    box-shadow: none;
+  }
+
+  .eridian-ai-sidebar__submit:disabled {
+    background: #e0decb;
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  .eridian-ai-sidebar__footer {
+    padding: 16px 24px;
+    border-top: 3px solid var(--spectral-border);
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--spectral-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: #ffffff;
+  }
+
+  /* PWA Install Button Styles */
+  .eridian-pwa-install-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: var(--spectral-accent);
+    border: 2px solid var(--spectral-border);
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 800;
+    color: #111111;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 var(--spectral-border);
+    transition: all 0.15s ease;
+    margin-right: 12px;
+  }
+
+  .eridian-pwa-install-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--spectral-border);
+    background: #e1ff5c;
+  }
+
+  .eridian-pwa-install-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+  }
+
+  .eridian-pwa-ios-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2000000;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .eridian-pwa-ios-content {
+    background: #ffffff;
+    border: 4px solid var(--spectral-border);
+    padding: 32px;
+    max-width: 400px;
+    width: 100%;
+    color: #111111;
+    box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.3);
+    animation: modal-pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  @keyframes modal-pop {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .eridian-pwa-ios-content h3 {
+    font-size: 24px;
+    font-weight: 900;
+    margin: 0 0 16px 0;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+
+  .eridian-pwa-ios-content p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    color: #444444;
+  }
+
+  .eridian-pwa-ios-content ol {
+    margin: 0 0 32px 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .eridian-pwa-ios-content li {
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .eridian-pwa-ios-content .inline-icon {
+    color: #111111;
+    background: #f0f0f0;
+    padding: 4px;
+    border-radius: 4px;
+  }
+
+  .eridian-pwa-ios-close {
+    width: 100%;
+    padding: 16px;
+    background: var(--spectral-accent);
+    border: 2px solid var(--spectral-border);
+    font-size: 14px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    box-shadow: 8px 8px 0 var(--spectral-border);
+    transition: all 0.15s ease;
+  }
+
+  .eridian-pwa-ios-close:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 11px 11px 0 var(--spectral-border);
+  }
+
+  .spectralboard[data-eridian-theme='dark'] .eridian-pwa-ios-content {
+    background: #1a1a1a;
+    color: #ffffff;
+  }
+
+  .spectralboard[data-eridian-theme='dark'] .eridian-pwa-ios-content p {
+    color: #aaaaaa;
+  }
+
+  .spectralboard[data-eridian-theme='dark'] .eridian-pwa-ios-content .inline-icon {
+    background: #333333;
+    color: #ffffff;
+  }
+
+  /* Cover Page Styles - Theme Aware Minimalist */
+  .eridian-cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000000;
+    background: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    overflow: hidden;
+    animation: cover-fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: background 0.5s ease;
+  }
+
+  .spectralboard[data-eridian-theme='light'] .eridian-cover {
+    background: #fdfcf8;
+    color: #111111;
+  }
+
+  .eridian-cover__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+    background-size: 32px 32px;
+    z-index: 0;
+  }
+
+  .spectralboard[data-eridian-theme='light'] .eridian-cover__overlay {
+    background-image: 
+      radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.05) 1px, transparent 0);
+  }
+
+  .eridian-cover__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .eridian-cover__logo-wrapper {
+    position: relative;
+    width: 100px;
+    height: 100px;
+  }
+
+  .eridian-cover__logo {
+    width: 100%;
+    height: 100%;
+    animation: logo-subtle-float 6s ease-in-out infinite;
+  }
+
+  .spectralboard[data-eridian-theme='light'] .eridian-cover__logo {
+    filter: invert(0); /* Default logo assuming it's dark for light theme, or adjust as needed */
+  }
+
+  @keyframes logo-subtle-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .eridian-cover__title {
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.8em;
+    margin: 0;
+    color: inherit;
+    text-indent: 0.8em;
+    opacity: 0.8;
+  }
+
+  .eridian-cover__enter {
+    margin-top: 20px;
+    padding: 16px 40px;
+    background: transparent;
+    border: 1px solid currentColor;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 700;
+    color: inherit;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-indent: 0.3em;
+    opacity: 0.6;
+  }
+
+  .eridian-cover__enter:hover {
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    opacity: 1;
+  }
+
+  .spectralboard[data-eridian-theme='light'] .eridian-cover__enter:hover {
+    background: #111111;
+    color: #ffffff;
+    border-color: #111111;
+  }
+
+  .eridian-cover__footer {
+    position: absolute;
+    bottom: 40px;
+    font-size: 10px;
+    font-weight: 500;
+    color: currentColor;
+    opacity: 0.2;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 720px) {
+    .eridian-ai-sidebar {
+      max-width: 85%;
+    }
+  }
+}
