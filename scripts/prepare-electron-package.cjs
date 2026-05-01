@@ -6,7 +6,7 @@ const sourceDir = path.join(root, '.next', 'standalone')
 const targetDir = path.join(root, '.next', 'standalone-electron')
 
 if (!fs.existsSync(sourceDir)) {
-  throw new Error(`Missing Next standalone output at ${sourceDir}. Run "pnpm build" first.`)
+  throw new Error(`Missing Next standalone output at ${sourceDir}. Run "npm run build" first.`)
 }
 
 fs.rmSync(targetDir, { force: true, recursive: true })

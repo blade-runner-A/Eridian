@@ -1,0 +1,51 @@
+name: Build & Release Eridian
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-latest]
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install Dependencies
+        run: bun install
+
+      - name: Build Application
+        run: bun run build
+
+      - name: Prepare Electron Package
+        run: node scripts/prepare-electron-package.cjs
+
+      - name: Build & Publish Electron App
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ "${{ matrix.os }}" == "windows-latest" ]; then
+            bun x electron-builder --win --publish always
+          elif [ "${{ matrix.os }}" == "macos-latest" ]; then
+            bun x electron-builder --mac --publish always
+          else
+            bun x electron-builder --linux --publish always
+          fi
+        shell: bash

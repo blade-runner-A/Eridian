@@ -9,11 +9,11 @@
     "desktop:prod": "node electron/prod-start.cjs",
     "desktop:electron": "electron .",
     "build": "next build",
-    "dist": "pnpm run build && node scripts/create-ico.cjs && node scripts/prepare-electron-package.cjs && electron-builder",
-    "dist:win": "pnpm run build && node scripts/prepare-electron-package.cjs && electron-builder --win",
-    "dist:mac": "pnpm run build && node scripts/prepare-electron-package.cjs && electron-builder --mac",
-    "dist:linux": "pnpm run build && node scripts/prepare-electron-package.cjs && electron-builder --linux",
-    "dist:all": "pnpm run build && node scripts/prepare-electron-package.cjs && electron-builder --win --mac --linux",
+    "dist": "npm run build && node scripts/create-ico.cjs && node scripts/prepare-electron-package.cjs && electron-builder",
+    "dist:win": "npm run build && node scripts/prepare-electron-package.cjs && electron-builder --win",
+    "dist:mac": "npm run build && node scripts/prepare-electron-package.cjs && electron-builder --mac",
+    "dist:linux": "npm run build && node scripts/prepare-electron-package.cjs && electron-builder --linux",
+    "dist:all": "npm run build && node scripts/prepare-electron-package.cjs && electron-builder --win --mac --linux",
     "start": "next start",
     "lint": "eslint ."
   },
@@ -146,6 +146,13 @@
         "AppImage",
         "deb"
       ]
-    }
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "blade-runner-A",
+        "repo": "Eridian"
+      }
+    ]
   }
 }
