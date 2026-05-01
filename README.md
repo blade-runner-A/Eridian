@@ -1,94 +1,71 @@
-# Eridian
+# Eridian 🌌
 
-> Local-first sketching with a sharper little edge.
+> **The Brutalist AI Workspace for Deep Thinking & Focused Design.**
 
-**Eridian** is a premium, minimalist sketch workspace designed for focused drawing and visual thinking. Built on top of Excalidraw, it provides a "brutalist" refined interface that prioritizes speed, local privacy, and a tactile digital feel.
+Eridian is a local-first, high-performance sketchboard engineered for those who think in lines, shapes, and architectural logic. It strips away the clutter of modern SaaS to provide a raw, high-contrast environment where human creativity meets machine intelligence.
 
-![Eridian Banner](public/icon-1024.png)
+![Eridian Preview](/public/icon-1024.png)
 
-## ✨ Features
+## 💎 The Innovation: Why Eridian?
 
-- **Local-First & Private**: Your drawings stay on your machine. Data is persisted locally using SQLite on desktop and localStorage/IndexedDB on the web.
-- **Seamless Desktop Experience**: A native Electron app for Windows, macOS, and Linux with a dedicated title bar and deep system integration.
-- **Brutalist Aesthetic**: A curated "paper" texture (#f4f1e8) and a sharp, high-contrast UI that feels like a professional drafting tool.
-- **Advanced Embeds**: Effortlessly embed YouTube videos, Figma files, Reddit threads, and X (Twitter) posts directly into your workspace.
-- **Desktop Webviews**: On the desktop app, embeds use native `webview` tags for better performance and isolated sessions.
-- **Installable PWA**: Take your workspace offline with full PWA support on mobile and desktop browsers.
-- **Auto-Save**: Never worry about losing work. Every stroke is captured and saved in real-time.
+Eridian isn't just another whiteboard. It is a **Spectral Workspace** designed for the "Local-First" era.
 
-## 🚀 Tech Stack
+### 🌑 Spectral Brutalism
+Inspired by architectural brutalism and high-contrast digital aesthetics, Eridian uses a signature **Spectral Yellow-Green** accent against deep blacks and frosted glass. It’s designed to eliminate UI fatigue and keep your focus entirely on the canvas.
 
-- **Framework**: [Next.js 15+](https://nextjs.org) (App Router, Turbopack)
-- **Canvas Engine**: [Excalidraw](https://excalidraw.com)
-- **Desktop**: [Electron](https://www.electronjs.org/)
-- **Database**: Node.js 22 `DatabaseSync` (SQLite)
-- **Styling**: Vanilla CSS + Tailwind CSS
-- **Package Manager**: `pnpm`
+### 🤖 AI-Integrated, Not Just AI-Adjacent
+While most tools treat AI as a chat box, Eridian treats it as a **Canvas Agent**.
+- **Sidebar Integration**: Access local or remote LLMs to help plan, structure, and generate ideas.
+- **MCP Protocol (Model Context Protocol)**: Eridian exposes a standard SSE server on port `3333`. This allows external terminal agents (like Gemini CLI or Claude) to "see" and "draw" on your canvas in real-time.
 
-## 🛠️ Getting Started
-
-### Prerequisites
-
-- [Node.js 22+](https://nodejs.org) (Required for native SQLite support)
-- [pnpm](https://pnpm.io)
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/your-repo/eridian.git
-cd eridian
-
-# Install dependencies
-pnpm install
-```
-
-### Development
-
-Run the web version in development mode:
-```bash
-pnpm run dev
-```
-
-Run the desktop version in development mode:
-```bash
-pnpm run desktop
-```
-
-## 📦 Building for Desktop
-
-Eridian is configured for multi-platform distribution using `electron-builder`.
-
-| Platform | Command | Output |
-| :--- | :--- | :--- |
-| **Current OS** | `pnpm run dist` | Current system installer |
-| **Windows** | `pnpm run dist:win` | `.exe` (Portable & NSIS) |
-| **macOS** | `pnpm run dist:mac` | `.dmg` & `.zip` |
-| **Linux** | `pnpm run dist:linux` | `.AppImage` & `.deb` |
-
-*Note: Building for macOS requires a macOS environment.*
-
-## 🎨 Visual Identity
-
-- **Primary Colors**: 
-  - Paper: `#f4f1e8`
-  - Glyph (Lime): `#d8ff35`
-  - Signal (Orange): `#ff6b35`
-  - Ink: `#111111`
-- **Typography**: Geist Sans & Geist Mono
-
-## 📂 Project Structure
-
-- `app/`: Next.js application routes and logic.
-- `components/`: React components, including the main `Sketchboard`.
-- `electron/`: Electron main process, preload scripts, and desktop-specific logic.
-- `public/`: Static assets and icons.
-- `scripts/`: Build and preparation scripts.
-
-## 📄 License
-
-Internal Project / All Rights Reserved.
+### 🏠 Local-First & Sovereign
+Your data never leaves your machine. Eridian uses a local SQLite backbone for storage, ensuring that your most sensitive plans, designs, and notes remain under your total control.
 
 ---
 
-Built with ❤️ for thinkers and creators.
+## 🎯 Who is it for?
+
+- **Systems Architects**: Visualize complex logic flows with zero friction.
+- **Creative Thinkers**: Map out ideas in a focused, minimalist environment.
+- **Developers**: Use AI agents to programmatically draw diagrams and plan sprints.
+- **Designers**: Prototype layouts and import PDFs for annotation without cloud lag.
+
+---
+
+## 🚀 How to Use
+
+### 🖥️ Desktop (Electron)
+For the most robust experience, run Eridian as a native desktop app.
+1. Download the latest release for Windows, Mac, or Linux.
+2. Launch to enjoy native performance, local file system access, and the built-in MCP server.
+
+### 📱 iPad & Mobile (PWA)
+Eridian is fully optimized as a Progressive Web App.
+1. Open Eridian in **Safari** on your iPad.
+2. Tap **Share** → **Add to Home Screen**.
+3. Launch from your home screen for a full-screen, native-feel experience with `black-translucent` status bars.
+
+### ⚡ AI Tooling
+- **PDF Annotation**: Drag and drop any PDF into the canvas to start sketching over it.
+- **Command Palette**: Press `Ctrl/Cmd + K` to search through your local workspace or trigger AI actions.
+- **Agent Connection**: Point your terminal agents to `http://localhost:3333/sse` to give them control over your sketchboard.
+
+---
+
+## 🛠️ Technical Stack
+
+- **Core**: Next.js 15 (Turbopack)
+- **Canvas Engine**: Excalidraw (Heavily Custom Styled)
+- **Desktop**: Electron with SSE MCP Server
+- **Styling**: Vanilla CSS with Brutalist Tokens
+- **Database**: Node.js SQLite (Experimental Sync)
+
+---
+
+## 📜 License
+
+Eridian is built with a focus on privacy and user sovereignty. See [LICENSE](LICENSE) for details.
+
+---
+
+*“Focused thought requires a focused canvas.” — The Eridian Philosophy*
