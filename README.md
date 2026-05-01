@@ -1,10 +1,10 @@
-# Eridian 🌌
-
-> **The Brutalist AI Workspace for Deep Thinking & Focused Design.**
+<div align="center">
+  <img src="public/icon.svg" width="128" height="128" alt="Eridian Logo" />
+  <h1>Eridian</h1>
+  <p><strong>The Brutalist AI Workspace for Deep Thinking & Focused Design.</strong></p>
+</div>
 
 Eridian is a local-first, high-performance sketchboard engineered for those who think in lines, shapes, and architectural logic. It strips away the clutter of modern SaaS to provide a raw, high-contrast environment where human creativity meets machine intelligence.
-
-![Eridian Preview](/public/icon-1024.png)
 
 ## 💎 The Innovation: Why Eridian?
 
