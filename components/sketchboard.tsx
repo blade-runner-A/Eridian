@@ -185,9 +185,9 @@ const ExcalidrawCanvas = dynamic(
             <MainMenu.Separator />
             <MainMenu.DefaultItems.ToggleTheme />
             <MainMenu.DefaultItems.ChangeCanvasBackground />
-            <MainMenu.DefaultItems.ToggleGrid />
-            <MainMenu.DefaultItems.ToggleZenMode />
-            <MainMenu.DefaultItems.ToggleStats />
+            <MainMenu.DefaultItems.GridMode />
+            <MainMenu.DefaultItems.ZenMode />
+            <MainMenu.DefaultItems.Stats />
             <MainMenu.Separator />
             <MainMenu.DefaultItems.Help />
             <MainMenu.Separator />
