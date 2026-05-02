@@ -95,7 +95,7 @@ const ExcalidrawCanvas = dynamic(
     const { Excalidraw, WelcomeScreen, MainMenu } = await import('@excalidraw/excalidraw')
 
     return function ExcalidrawCanvas(props: any) {
-      const { setShowAiPanel, ...rest } = props
+      const { setShowAiPanel, excalidrawApiRef, ...rest } = props
       return (
         <Excalidraw
           {...rest}
@@ -799,6 +799,7 @@ export function Sketchboard() {
         {showAiPanel && <AiBar onAddElements={handleAddAiElements} onClose={() => setShowAiPanel(false)} />}
         <ExcalidrawCanvas
           setShowAiPanel={setShowAiPanel}
+          excalidrawApiRef={excalidrawApiRef}
           excalidrawAPI={(api: ExcalidrawImperativeAPI) => {
             excalidrawApiRef.current = api
             findToolbar()
