@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic'
 import type { BinaryFileData, DataURL, ExcalidrawImperativeAPI, FileId } from '@excalidraw/excalidraw/types'
 import { createElement, useCallback, useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { FileText, Sparkles } from 'lucide-react'
+import { FileText, Sparkles, LayoutGrid, Maximize, BarChart2 } from 'lucide-react'
 import { AiBar } from './ai-assistant'
 import { PwaInstallButton } from './pwa-install-button'
 
@@ -185,9 +185,39 @@ const ExcalidrawCanvas = dynamic(
             <MainMenu.Separator />
             <MainMenu.DefaultItems.ToggleTheme />
             <MainMenu.DefaultItems.ChangeCanvasBackground />
-            <MainMenu.DefaultItems.GridMode />
-            <MainMenu.DefaultItems.ZenMode />
-            <MainMenu.DefaultItems.Stats />
+            <MainMenu.Item
+              icon={<LayoutGrid size={16} />}
+              onSelect={() => {
+                const api = excalidrawApiRef.current
+                if (!api) return
+                const { gridModeEnabled } = api.getAppState()
+                api.setAppState({ gridModeEnabled: !gridModeEnabled })
+              }}
+            >
+              Grid Mode
+            </MainMenu.Item>
+            <MainMenu.Item
+              icon={<Maximize size={16} />}
+              onSelect={() => {
+                const api = excalidrawApiRef.current
+                if (!api) return
+                const { zenModeEnabled } = api.getAppState()
+                api.setAppState({ zenModeEnabled: !zenModeEnabled })
+              }}
+            >
+              Zen Mode
+            </MainMenu.Item>
+            <MainMenu.Item
+              icon={<BarChart2 size={16} />}
+              onSelect={() => {
+                const api = excalidrawApiRef.current
+                if (!api) return
+                const { showStats } = api.getAppState()
+                api.setAppState({ showStats: !showStats })
+              }}
+            >
+              Stats
+            </MainMenu.Item>
             <MainMenu.Separator />
             <MainMenu.DefaultItems.Help />
             <MainMenu.Separator />
