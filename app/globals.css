@@ -216,7 +216,7 @@
   .spectralboard[data-eridian-platform='web'] .eridian-web-side-brand {
     position: fixed;
     top: 14px;
-    left: 14px;
+    left: 60px;
     z-index: 50;
     display: flex;
     flex-direction: row;
