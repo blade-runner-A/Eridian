@@ -191,7 +191,7 @@ const ExcalidrawCanvas = dynamic(
                 const api = excalidrawApiRef.current
                 if (!api) return
                 const { gridModeEnabled } = api.getAppState()
-                api.setAppState({ gridModeEnabled: !gridModeEnabled })
+                api.updateScene({ appState: { gridModeEnabled: !gridModeEnabled } })
               }}
             >
               Grid Mode
@@ -202,7 +202,7 @@ const ExcalidrawCanvas = dynamic(
                 const api = excalidrawApiRef.current
                 if (!api) return
                 const { zenModeEnabled } = api.getAppState()
-                api.setAppState({ zenModeEnabled: !zenModeEnabled })
+                api.updateScene({ appState: { zenModeEnabled: !zenModeEnabled } })
               }}
             >
               Zen Mode
@@ -212,8 +212,8 @@ const ExcalidrawCanvas = dynamic(
               onSelect={() => {
                 const api = excalidrawApiRef.current
                 if (!api) return
-                const { showStats } = api.getAppState()
-                api.setAppState({ showStats: !showStats })
+                const { stats } = api.getAppState()
+                api.updateScene({ appState: { stats: { ...stats, open: !stats.open } } })
               }}
             >
               Stats
