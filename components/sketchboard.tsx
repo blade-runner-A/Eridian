@@ -92,7 +92,7 @@ function getEmbeddableRenderData(link: string, theme: 'light' | 'dark'): Embedda
 
 const ExcalidrawCanvas = dynamic(
   async () => {
-    const { Excalidraw, WelcomeScreen, MainMenu } = await import('@excalidraw/excalidraw')
+    const { Excalidraw, WelcomeScreen, MainMenu, DefaultSidebar } = await import('@excalidraw/excalidraw')
 
     return function ExcalidrawCanvas(props: any) {
       const { setShowAiPanel, excalidrawApiRef, ...rest } = props
@@ -154,11 +154,11 @@ const ExcalidrawCanvas = dynamic(
                 <span className="spectralboard-welcome-title">Eridian</span>
               </WelcomeScreen.Center.Heading>
               <div className="spectralboard-welcome-copy">
-                <p>Local-first sketching with a sharper little edge.</p>
+                <p>Local-first sketching with a clean, minimalistic touch.</p>
                 <div className="spectralboard-welcome-features">
                   <span>Auto-saves locally</span>
                   <span>Installable PWA</span>
-                  <span>Brutalist tool skin</span>
+                  <span>Minimalist white theme</span>
                 </div>
               </div>
             </WelcomeScreen.Center>

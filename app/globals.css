@@ -126,18 +126,30 @@
 
 @layer components {
   .spectralboard {
-    --spectral-paper: #f4f1e8;
-    --spectral-panel: #fffdf4;
+    --spectral-paper: #ffffff;
+    --spectral-panel: #fafafa;
     --spectral-panel-strong: #ffffff;
-    --spectral-ink: #111111;
-    --spectral-muted: #59554d;
-    --spectral-border: #111111;
-    --spectral-accent: #d8ff35;
-    --spectral-accent-alt: #ff6b35;
-    --spectral-blue: #72ddf7;
-    --spectral-shadow: 5px 5px 0 #111111;
+    --spectral-ink: #222222;
+    --spectral-muted: #888888;
+    --spectral-border: #e2e8f0;
+    --spectral-accent: #3b82f6;
+    --spectral-accent-alt: #0ea5e9;
+    --spectral-blue: #3b82f6;
+    --spectral-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     background: var(--spectral-paper);
   }
+
+
+  .spectralboard[data-eridian-theme='dark'] {
+    --spectral-paper: #0a0a0a;
+    --spectral-panel: #141414;
+    --spectral-panel-strong: #1a1a1a;
+    --spectral-ink: #ededed;
+    --spectral-muted: #a3a3a3;
+    --spectral-border: #262626;
+    --spectral-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  }
+
 
   .eridian-shell {
     display: flex;
@@ -155,16 +167,16 @@
     min-height: calc(34px + env(safe-area-inset-top));
     padding: env(safe-area-inset-top) 14px 0;
     background: #ffffff;
-    border-bottom: 2px solid var(--spectral-border);
+    border-bottom: 1px solid var(--spectral-border);
     color: var(--spectral-ink);
     -webkit-app-region: drag;
     user-select: none;
   }
 
   .spectralboard[data-eridian-theme='dark'] .eridian-titlebar {
-    background: #101010;
-    border-bottom-color: #f7f3e8;
-    color: #f7f3e8;
+    background: #111111;
+    border-bottom-color: #333333;
+    color: #ffffff;
   }
 
   .spectralboard[data-eridian-platform='win32'] .eridian-titlebar,
@@ -231,14 +243,14 @@
     gap: 10px;
     padding: 8px 12px;
     background: #ffffff;
-    border: 2px solid var(--spectral-border);
+    border: 1px solid var(--spectral-border);
     border-radius: 4px;
-    box-shadow: 4px 4px 0 var(--spectral-border);
+    box-shadow: var(--spectral-shadow);
     pointer-events: auto;
   }
 
   .spectralboard[data-eridian-theme='dark'] .eridian-web-side-brand__inner {
-    background: #101010;
+    background: #111111;
   }
 
   .eridian-web-side-brand__logo {
@@ -339,24 +351,24 @@
     width: 36px;
     height: 36px;
     padding: 0;
-    border: 2px solid var(--spectral-border);
+    border: 1px solid var(--spectral-border);
     border-radius: 4px;
     background: var(--spectral-panel-strong);
     color: var(--spectral-ink);
-    box-shadow: 3px 3px 0 var(--spectral-border);
+    box-shadow: var(--spectral-shadow);
     cursor: pointer;
     transition: all 0.1s ease;
   }
 
   .eridian-pdf-toolbar-button:hover:not(:disabled) {
     background: var(--spectral-accent);
-    transform: translate(-1px, -1px);
-    box-shadow: 4px 4px 0 var(--spectral-border);
+    
+    box-shadow: var(--spectral-shadow);
   }
 
   .eridian-pdf-toolbar-button:active:not(:disabled) {
-    transform: translate(1px, 1px);
-    box-shadow: 2px 2px 0 var(--spectral-border);
+    
+    box-shadow: var(--spectral-shadow);
   }
 
   .eridian-pdf-toolbar-button:disabled {
@@ -373,11 +385,11 @@
     color: white;
     font-size: 9px;
     padding: 1px 4px;
-    border: 1.5px solid var(--spectral-border);
+    border: 1px solid var(--spectral-border);
     border-radius: 4px;
     font-weight: 800;
     white-space: nowrap;
-    box-shadow: 2px 2px 0 var(--spectral-border);
+    box-shadow: var(--spectral-shadow);
     z-index: 10;
   }
 
@@ -387,14 +399,14 @@
     align-items: flex-start;
     gap: 2px;
     padding: 6px 10px;
-    border: 2px solid var(--spectral-border);
+    border: 1px solid var(--spectral-border);
     border-radius: 4px;
     background: var(--spectral-panel-strong);
     color: var(--spectral-ink);
     font-size: 12px;
     font-weight: 700;
     line-height: 1.1;
-    box-shadow: 3px 3px 0 var(--spectral-border);
+    box-shadow: var(--spectral-shadow);
     cursor: pointer;
   }
 
@@ -420,21 +432,17 @@
   }
 
   .spectralboard .excalidraw {
-    --color-primary: var(--spectral-accent) !important;
-    --color-primary-darker: #c6eb2e !important;
-    --color-primary-darkest: #111111 !important;
-    --color-primary-light: #e9ffc2 !important;
-    --color-promo: var(--spectral-accent) !important;
+    --color-primary: #3b82f6 !important;
+    --color-primary-darker: #2563eb !important;
+    --color-primary-darkest: #1e3a8a !important;
+    --color-primary-light: #dbeafe !important;
+    --color-promo: #3b82f6 !important;
     --default-border-color: var(--spectral-border);
     --button-gray-1: #ffffff;
     --button-gray-2: #f4f1e8;
     --button-gray-3: #e4dfd0;
     color: var(--spectral-ink);
-    background:
-      linear-gradient(#dfdacb 1px, transparent 1px),
-      linear-gradient(90deg, #dfdacb 1px, transparent 1px),
-      var(--spectral-paper);
-    background-size: 28px 28px;
+    background: var(--spectral-paper);
   }
 
   .spectralboard .excalidraw .Island,
@@ -446,7 +454,7 @@
   .spectralboard .excalidraw .Toast,
   .spectralboard .excalidraw .default-sidebar {
     background: var(--spectral-panel);
-    border: 2px solid var(--spectral-border);
+    border: 1px solid var(--spectral-border);
     border-radius: 4px;
     box-shadow: var(--spectral-shadow);
     backdrop-filter: none;
@@ -461,10 +469,10 @@
   .spectralboard .excalidraw .buttonList button,
   .spectralboard .excalidraw .sidebar__header__buttons button {
     background: var(--spectral-panel-strong);
-    border: 2px solid var(--spectral-border);
+    border: 1px solid var(--spectral-border);
     border-radius: 4px;
     color: var(--spectral-ink);
-    box-shadow: 3px 3px 0 var(--spectral-border);
+    box-shadow: var(--spectral-shadow);
     transition:
       background-color 120ms ease,
       box-shadow 120ms ease,
@@ -478,10 +486,10 @@
   .spectralboard .excalidraw .buttonList label:hover,
   .spectralboard .excalidraw .buttonList button:hover,
   .spectralboard .excalidraw .sidebar__header__buttons button:hover {
-    background: #d8ff35;
-    color: #050505;
-    box-shadow: 4px 4px 0 var(--spectral-border);
-    transform: translate(-1px, -1px);
+    background: var(--spectral-accent-alt);
+    color: var(--spectral-ink);
+    box-shadow: var(--spectral-shadow);
+    
   }
 
   .spectralboard .excalidraw .ToolIcon .ToolIcon_type_radio:checked + .ToolIcon__icon,
@@ -494,9 +502,9 @@
   .spectralboard .excalidraw .sidebar-tab-trigger[data-state=active] {
     background: var(--spectral-accent);
     border-color: var(--spectral-border);
-    color: oklch(0.18 0.04 232);
-    box-shadow: 2px 2px 0 var(--spectral-border);
-    transform: translate(1px, 1px);
+    color: #ffffff;
+    box-shadow: var(--spectral-shadow);
+    
   }
 
   .spectralboard .excalidraw .ToolIcon__icon svg,
@@ -531,16 +539,16 @@
   .spectralboard .excalidraw .TextInput,
   .spectralboard .excalidraw .ExcTextField__input {
     background: #ffffff;
-    border: 2px solid var(--spectral-border);
+    border: 1px solid var(--spectral-border);
     border-radius: 4px;
     color: var(--spectral-ink);
-    box-shadow: 2px 2px 0 var(--spectral-border);
+    box-shadow: var(--spectral-shadow);
   }
 
   .spectralboard .excalidraw input[type='text']:focus,
   .spectralboard .excalidraw textarea:not(.excalidraw-wysiwyg):focus {
     border-color: var(--spectral-border);
-    box-shadow: 3px 3px 0 var(--spectral-accent-alt);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   }
 
   .spectralboard .excalidraw .color-picker__button.active-color,
@@ -551,37 +559,33 @@
 
   .spectralboard .excalidraw-tooltip {
     background: var(--spectral-ink);
-    border: 2px solid var(--spectral-ink);
+    border: 1px solid var(--spectral-border);
     border-radius: 4px;
     color: white;
-    box-shadow: 4px 4px 0 var(--spectral-accent);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   }
 
   .spectralboard .excalidraw.theme--dark {
-    --color-primary: #d8ff35;
-    --color-primary-darker: #a6d900;
-    --color-primary-darkest: #050505;
-    --color-primary-light: #36470e;
-    --default-border-color: #f2f0e7;
+    --color-primary: #3b82f6;
+    --color-primary-darker: #2563eb;
+    --color-primary-darkest: #111111;
+    --color-primary-light: #1e3a8a;
+    --default-border-color: #262626;
     --button-gray-1: #191919;
     --button-gray-2: #252525;
     --button-gray-3: #333333;
     --spectral-paper: #101010;
     --spectral-panel: #1a1a1a;
     --spectral-panel-strong: #242424;
-    --spectral-ink: #f7f3e8;
-    --spectral-muted: #c5beaa;
-    --spectral-border: #f7f3e8;
-    --spectral-accent: #d8ff35;
-    --spectral-accent-alt: #ff7a3d;
-    --spectral-blue: #d8ff35;
-    --spectral-shadow: 5px 5px 0 #f7f3e8;
+    --spectral-ink: #ffffff;
+    --spectral-muted: #a3a3a3;
+    --spectral-border: #262626;
+    --spectral-accent: #3b82f6;
+    --spectral-accent-alt: #0ea5e9;
+    --spectral-blue: #3b82f6;
+    --spectral-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     color: var(--spectral-ink);
-    background:
-      linear-gradient(#282828 1px, transparent 1px),
-      linear-gradient(90deg, #282828 1px, transparent 1px),
-      var(--spectral-paper);
-    background-size: 28px 28px;
+    background: var(--spectral-paper);
   }
 
   .spectralboard .excalidraw.theme--dark .Island,
@@ -593,7 +597,7 @@
   .spectralboard .excalidraw.theme--dark .Toast,
   .spectralboard .excalidraw.theme--dark .default-sidebar {
     background: var(--spectral-panel);
-    border: 2px solid var(--spectral-border);
+    border: 1px solid var(--spectral-border);
     box-shadow: var(--spectral-shadow);
     color: var(--spectral-ink);
   }
@@ -607,9 +611,9 @@
   .spectralboard .excalidraw.theme--dark .buttonList button,
   .spectralboard .excalidraw.theme--dark .sidebar__header__buttons button {
     background: var(--spectral-panel-strong);
-    border: 2px solid var(--spectral-border);
+    border: 1px solid var(--spectral-border);
     color: var(--spectral-ink);
-    box-shadow: 3px 3px 0 var(--spectral-border);
+    box-shadow: var(--spectral-shadow);
   }
 
   .spectralboard .excalidraw.theme--dark .ToolIcon__icon:hover,
@@ -620,8 +624,8 @@
   .spectralboard .excalidraw.theme--dark .buttonList button:hover,
   .spectralboard .excalidraw.theme--dark .sidebar__header__buttons button:hover {
     background: var(--spectral-blue);
-    color: #050505;
-    box-shadow: 4px 4px 0 var(--spectral-border);
+    color: var(--spectral-ink);
+    box-shadow: var(--spectral-shadow);
   }
 
   .spectralboard .excalidraw.theme--dark .ToolIcon .ToolIcon_type_radio:checked + .ToolIcon__icon,
@@ -634,8 +638,8 @@
   .spectralboard .excalidraw.theme--dark .sidebar-tab-trigger[data-state=active] {
     background: var(--spectral-accent);
     border-color: var(--spectral-border);
-    color: #050505;
-    box-shadow: 2px 2px 0 var(--spectral-border);
+    color: var(--spectral-ink);
+    box-shadow: var(--spectral-shadow);
   }
 
   .spectralboard .excalidraw.theme--dark .ToolIcon__icon svg,
@@ -662,7 +666,7 @@
   .spectralboard .excalidraw.theme--dark .library-unit--hover,
   .spectralboard .excalidraw.theme--dark .layer-ui__result-item:hover {
     background: var(--spectral-blue);
-    color: #050505;
+    color: var(--spectral-ink);
   }
 
   .spectralboard .excalidraw.theme--dark input[type='text'],
@@ -670,20 +674,20 @@
   .spectralboard .excalidraw.theme--dark .TextInput,
   .spectralboard .excalidraw.theme--dark .ExcTextField__input {
     background: #111111;
-    border: 2px solid var(--spectral-border);
+    border: 1px solid var(--spectral-border);
     color: var(--spectral-ink);
-    box-shadow: 2px 2px 0 var(--spectral-border);
+    box-shadow: var(--spectral-shadow);
   }
 
   .spectralboard .excalidraw.theme--dark input[type='text']:focus,
   .spectralboard .excalidraw.theme--dark textarea:not(.excalidraw-wysiwyg):focus {
-    box-shadow: 3px 3px 0 var(--spectral-accent-alt);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   }
 
   .spectralboard .excalidraw.theme--dark .color-picker__button.active-color,
   .spectralboard .excalidraw.theme--dark .color-picker-swatch.active,
   .spectralboard .excalidraw.theme--dark .picker-swatch.active {
-    box-shadow: 0 0 0 2px #101010, 0 0 0 5px var(--spectral-border), 4px 4px 0 var(--spectral-accent);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2), 0 0 0 1px var(--spectral-border);
   }
 
   .spectralboard .excalidraw.theme--dark + .excalidraw-tooltip,
@@ -697,9 +701,9 @@
   .spectralboard .excalidraw.theme--dark .App-menu_top .Island,
   .spectralboard .excalidraw.theme--dark .App-menu_bottom .Island {
     background: #151515 !important;
-    border: 2px solid #f7f3e8 !important;
+    border: 1px solid var(--spectral-border) !important;
     border-radius: 4px !important;
-    box-shadow: 6px 6px 0 #f7f3e8 !important;
+    box-shadow: none !important;
   }
 
   .spectralboard .excalidraw.theme--dark .App-toolbar-container .ToolIcon__icon,
@@ -711,41 +715,41 @@
   .spectralboard .excalidraw.theme--dark .reset-zoom-button,
   .spectralboard .excalidraw.theme--dark .finalize-button {
     background: #202020 !important;
-    border: 2px solid #f7f3e8 !important;
+    border: 1px solid var(--spectral-border) !important;
     border-radius: 4px !important;
-    color: #f7f3e8 !important;
-    box-shadow: 3px 3px 0 #f7f3e8 !important;
+    color: #ffffff !important;
+    box-shadow: none !important;
   }
 
   /* Specific fix for scroll-back-to-content which uses transform for centering */
   .spectralboard .excalidraw .scroll-back-to-content {
     background: #ffffff !important;
-    border: 2px solid var(--spectral-border) !important;
+    border: 1px solid var(--spectral-border) !important;
     border-radius: 4px !important;
     color: var(--spectral-ink) !important;
-    box-shadow: 3px 3px 0 var(--spectral-border) !important;
+    box-shadow: none !important;
     transition: all 0.1s ease !important;
   }
 
   .spectralboard .excalidraw.theme--dark .scroll-back-to-content {
     background: #202020 !important;
-    border: 2px solid #f7f3e8 !important;
-    color: #f7f3e8 !important;
-    box-shadow: 3px 3px 0 #f7f3e8 !important;
+    border: 1px solid var(--spectral-border) !important;
+    color: #ffffff !important;
+    box-shadow: none !important;
   }
 
   .spectralboard .excalidraw .scroll-back-to-content:hover {
     background: var(--spectral-accent) !important;
     color: #111111 !important;
-    transform: translateX(-50%) translate(-2px, -2px) !important;
-    box-shadow: 5px 5px 0 var(--spectral-border) !important;
+    transform: translateX(-50%) !important;
+    box-shadow: none !important;
   }
 
   .spectralboard .excalidraw.theme--dark .scroll-back-to-content:hover {
     background: var(--spectral-accent) !important;
-    color: #050505 !important;
-    transform: translateX(-50%) translate(-2px, -2px) !important;
-    box-shadow: 5px 5px 0 #f7f3e8 !important;
+    color: #111111 !important;
+    transform: translateX(-50%) !important;
+    box-shadow: none !important;
   }
 
   /* Hotkey Labels (Numbers) */
@@ -761,7 +765,7 @@
   }
 
   .spectralboard .excalidraw.theme--dark .ToolIcon__keybinding {
-    color: #f7f3e8 !important;
+    color: #ffffff !important;
     opacity: 0.5;
   }
 
@@ -785,8 +789,8 @@
     background: rgba(21, 21, 21, 0.6) !important;
     backdrop-filter: blur(16px) saturate(160%) !important;
     -webkit-backdrop-filter: blur(16px) saturate(160%) !important;
-    border: 3px solid #f7f3e8 !important;
-    box-shadow: 12px 12px 0 #f7f3e8 !important;
+    border: 1px solid var(--spectral-border) !important;
+    box-shadow: none !important;
   }
 
   /* Eridian Sidebar Theme (Search, Layers, etc.) */
@@ -798,7 +802,7 @@
 
   .spectralboard .excalidraw.theme--dark .default-sidebar {
     background: #181818 !important;
-    border-left: 4px solid #f7f3e8 !important;
+    border-left: 1px solid var(--spectral-border) !important;
     box-shadow: -8px 0 0 rgba(255,255,255,0.05) !important;
   }
 
@@ -810,13 +814,13 @@
 
   .spectralboard .excalidraw.theme--dark .default-sidebar .sidebar-header {
     background: #222222 !important;
-    border-bottom: 3px solid #f7f3e8 !important;
+    border-bottom: 1px solid var(--spectral-border) !important;
   }
 
   .spectralboard .excalidraw .sidebar-trigger.active {
     background: var(--spectral-accent) !important;
-    border: 2px solid var(--spectral-border) !important;
-    box-shadow: 2px 2px 0 var(--spectral-border) !important;
+    border: 1px solid var(--spectral-border) !important;
+    box-shadow: none !important;
   }
 
   /* Accent Highlight for Search/Palette */
@@ -828,8 +832,8 @@
   .spectralboard .excalidraw .buttonList button.active {
     background: var(--spectral-accent) !important;
     color: #111111 !important;
-    border: 2px solid var(--spectral-border) !important;
-    box-shadow: 2px 2px 0 var(--spectral-border) !important;
+    border: 1px solid var(--spectral-border) !important;
+    box-shadow: none !important;
   }
 
   .spectralboard .excalidraw .sidebar-trigger.active svg {
@@ -845,7 +849,7 @@
   .spectralboard .excalidraw .layer-ui__library-browse-button {
     background-color: var(--spectral-accent) !important;
     color: #111111 !important;
-    border: 2px solid var(--spectral-border) !important;
+    border: 1px solid var(--spectral-border) !important;
   }
 
   .spectralboard .excalidraw.theme--dark .App-toolbar-container .ToolIcon__icon:hover,
@@ -856,10 +860,10 @@
   .spectralboard .excalidraw.theme--dark .help-icon:hover,
   .spectralboard .excalidraw.theme--dark .reset-zoom-button:hover,
   .spectralboard .excalidraw.theme--dark .finalize-button:hover {
-    background: #d8ff35 !important;
-    color: #050505 !important;
-    box-shadow: 5px 5px 0 #f7f3e8 !important;
-    transform: translate(-2px, -2px) !important;
+    background: #3b82f6 !important;
+    color: #111111 !important;
+    box-shadow: none !important;
+    transform: none !important;
   }
 
   .spectralboard .excalidraw.theme--dark .ToolIcon .ToolIcon_type_radio:checked + .ToolIcon__icon,
@@ -869,11 +873,11 @@
   .spectralboard .excalidraw.theme--dark .main-menu-trigger.active,
   .spectralboard .excalidraw.theme--dark .dropdown-menu-button.active,
   .spectralboard .excalidraw.theme--dark button.active {
-    background: #d8ff35 !important;
-    border: 2px solid #f7f3e8 !important;
-    color: #050505 !important;
-    box-shadow: 2px 2px 0 #f7f3e8 !important;
-    transform: translate(1px, 1px) !important;
+    background: #3b82f6 !important;
+    border: 1px solid var(--spectral-border) !important;
+    color: #111111 !important;
+    box-shadow: none !important;
+    transform: none !important;
   }
 
   .spectralboard .excalidraw.theme--dark .ToolIcon__icon svg,
@@ -888,19 +892,19 @@
   }
 
   .spectralboard .excalidraw.theme--dark .ToolIcon__keybinding {
-    background: #f7f3e8 !important;
-    border: 1px solid #050505 !important;
+    background: #ffffff !important;
+    border: 1px solid #111111 !important;
     border-radius: 2px !important;
-    color: #050505 !important;
+    color: #111111 !important;
     font-weight: 800 !important;
   }
 
   .spectralboard .excalidraw.theme--dark .dropdown-menu .dropdown-menu-container,
   .spectralboard .excalidraw.theme--dark .App-menu__left {
     background: #1b1b1b !important;
-    border: 2px solid #f7f3e8 !important;
+    border: 1px solid var(--spectral-border) !important;
     border-radius: 4px !important;
-    box-shadow: 6px 6px 0 #f7f3e8 !important;
+    box-shadow: none !important;
   }
 
   .spectralboard .excalidraw.theme--dark .dropdown-menu .dropdown-menu-item,
@@ -909,30 +913,30 @@
   .spectralboard .excalidraw.theme--dark .panelColumn h3,
   .spectralboard .excalidraw.theme--dark .panelColumn legend,
   .spectralboard .excalidraw.theme--dark .panelColumn .control-label {
-    color: #f7f3e8 !important;
+    color: #ffffff !important;
   }
 
   .spectralboard .excalidraw.theme--dark .dropdown-menu .dropdown-menu-item:hover,
   .spectralboard .excalidraw.theme--dark .dropdown-menu.manual-hover .dropdown-menu-item:hover,
   .spectralboard .excalidraw.theme--dark .dropdown-menu.manual-hover .dropdown-menu-item--hovered,
   .spectralboard .excalidraw.theme--dark .dropdown-menu.manual-hover .dropdown-menu-item--selected {
-    background: #d8ff35 !important;
-    color: #050505 !important;
+    background: #3b82f6 !important;
+    color: #111111 !important;
   }
 
   .spectralboard .excalidraw.theme--dark .dropdown-menu .dropdown-menu-item:hover svg,
   .spectralboard .excalidraw.theme--dark .dropdown-menu.manual-hover .dropdown-menu-item--hovered svg,
   .spectralboard .excalidraw.theme--dark .dropdown-menu.manual-hover .dropdown-menu-item--selected svg {
-    color: #050505 !important;
-    stroke: #050505 !important;
+    color: #111111 !important;
+    stroke: #111111 !important;
   }
 
   .spectralboard .excalidraw.theme--dark .color-picker__button,
   .spectralboard .excalidraw.theme--dark .color-picker-swatch,
   .spectralboard .excalidraw.theme--dark .picker-swatch {
-    border: 2px solid #f7f3e8 !important;
+    border: 1px solid var(--spectral-border) !important;
     border-radius: 4px !important;
-    box-shadow: 2px 2px 0 #f7f3e8 !important;
+    box-shadow: none !important;
   }
 
   .spectralboard .excalidraw:not(.theme--dark) .App-toolbar-container .ToolIcon__icon:hover,
@@ -948,10 +952,10 @@
   .spectralboard .excalidraw:not(.theme--dark) .buttonList label:hover,
   .spectralboard .excalidraw:not(.theme--dark) .buttonList button:hover,
   .spectralboard .excalidraw:not(.theme--dark) .sidebar__header__buttons button:hover {
-    background: #d8ff35 !important;
-    color: #050505 !important;
-    box-shadow: 5px 5px 0 #111111 !important;
-    transform: translate(-2px, -2px) !important;
+    background: #3b82f6 !important;
+    color: #111111 !important;
+    box-shadow: none !important;
+    transform: none !important;
   }
 
   .spectralboard .excalidraw .welcome-screen-center {
@@ -983,7 +987,7 @@
     font-weight: 700;
     letter-spacing: 0;
     line-height: 1;
-    text-shadow: 3px 3px 0 #fffdf4;
+    text-shadow: none;
     transform: rotate(-1deg);
   }
 
@@ -1023,8 +1027,8 @@
   }
 
   .spectralboard .excalidraw.theme--dark .spectralboard-welcome-title {
-    color: #d8ff35;
-    text-shadow: 3px 3px 0 #050505;
+    color: #3b82f6;
+    text-shadow: none;
   }
 
   .spectralboard .excalidraw.theme--dark .spectralboard-welcome-copy,
@@ -1107,7 +1111,7 @@
     font-size: 24px;
     font-weight: 300;
     color: var(--spectral-muted);
-    border: 2px solid transparent;
+    border: 1px solid var(--spectral-border);
     background: transparent;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -1161,13 +1165,13 @@
     gap: 6px;
     padding: 6px 10px;
     background: #ffffff;
-    border: 2px solid var(--spectral-border);
+    border: 1px solid var(--spectral-border);
     border-radius: 4px;
     font-size: 11px;
     font-weight: 800;
     color: var(--spectral-ink);
     cursor: pointer;
-    box-shadow: 3px 3px 0 var(--spectral-border);
+    box-shadow: var(--spectral-shadow);
     transition: all 0.15s ease;
   }
 
@@ -1178,12 +1182,12 @@
   .eridian-ai-sidebar__preset-btn:hover:not(:disabled) {
     background: var(--spectral-accent);
     color: #111111;
-    transform: translate(-1px, -1px);
-    box-shadow: 4px 4px 0 var(--spectral-border);
+    
+    box-shadow: var(--spectral-shadow);
   }
 
   .eridian-ai-sidebar__preset-btn:active:not(:disabled) {
-    transform: translate(1px, 1px);
+    
     box-shadow: none;
   }
 
@@ -1203,7 +1207,7 @@
   }
 
   .eridian-ai-sidebar__input-wrapper:focus-within {
-    transform: translate(-2px, -2px);
+    
     box-shadow: 10px 10px 0 var(--spectral-accent-alt);
   }
 
@@ -1245,12 +1249,12 @@
 
   .eridian-ai-sidebar__submit:hover:not(:disabled) {
     background: #e1ff5c;
-    transform: translate(-3px, -3px);
+    
     box-shadow: 11px 11px 0 var(--spectral-border);
   }
 
   .eridian-ai-sidebar__submit:active:not(:disabled) {
-    transform: translate(5px, 5px);
+    
     box-shadow: none;
   }
 
@@ -1283,7 +1287,7 @@
     gap: 8px;
     padding: 6px 14px;
     background: var(--spectral-accent);
-    border: 2px solid var(--spectral-border);
+    border: 1px solid var(--spectral-border);
     border-radius: 4px;
     font-size: 11px;
     font-weight: 800;
@@ -1291,19 +1295,19 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     cursor: pointer;
-    box-shadow: 4px 4px 0 var(--spectral-border);
+    box-shadow: var(--spectral-shadow);
     transition: all 0.15s ease;
     margin-right: 12px;
   }
 
   .eridian-pwa-install-btn:hover {
-    transform: translate(-2px, -2px);
+    
     box-shadow: 6px 6px 0 var(--spectral-border);
     background: #e1ff5c;
   }
 
   .eridian-pwa-install-btn:active {
-    transform: translate(2px, 2px);
+    
     box-shadow: none;
   }
 
@@ -1381,7 +1385,7 @@
     width: 100%;
     padding: 16px;
     background: var(--spectral-accent);
-    border: 2px solid var(--spectral-border);
+    border: 1px solid var(--spectral-border);
     font-size: 14px;
     font-weight: 900;
     text-transform: uppercase;
@@ -1392,7 +1396,7 @@
   }
 
   .eridian-pwa-ios-close:hover {
-    transform: translate(-3px, -3px);
+    
     box-shadow: 11px 11px 0 var(--spectral-border);
   }
 

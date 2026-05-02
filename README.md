@@ -1,7 +1,7 @@
 <div align="center">
   <img src="public/icon.svg" width="128" height="128" alt="Eridian Logo" />
   <h1>Eridian</h1>
-  <p><strong>The Brutalist AI Workspace for Deep Thinking & Focused Design.</strong></p>
+  <p><strong>The Minimalist AI Workspace for Deep Thinking & Focused Design.</strong></p>
 </div>
 
 Eridian is a local-first, high-performance sketchboard engineered for those who think in lines, shapes, and architectural logic. It strips away the clutter of modern SaaS to provide a raw, high-contrast environment where human creativity meets machine intelligence.
@@ -10,8 +10,8 @@ Eridian is a local-first, high-performance sketchboard engineered for those who 
 
 Eridian isn't just another whiteboard. It is a **Spectral Workspace** designed for the "Local-First" era.
 
-### 🌑 Spectral Brutalism
-Inspired by architectural brutalism and high-contrast digital aesthetics, Eridian uses a signature **Spectral Yellow-Green** accent against deep blacks and frosted glass. It’s designed to eliminate UI fatigue and keep your focus entirely on the canvas.
+### ❄️ Clinical Minimalism
+Inspired by clean digital aesthetics, Eridian uses a signature **Clinical Blue** accent against crisp whites and minimal soft borders. It delivers a 60FPS fluid experience, effortlessly scaling to handle massive amounts of shapes and drawings without lagging. It’s designed to eliminate UI fatigue and keep your focus entirely on the canvas.
 
 ### 🤖 AI-Integrated, Not Just AI-Adjacent
 While most tools treat AI as a chat box, Eridian treats it as a **Canvas Agent**.
@@ -57,7 +57,7 @@ Eridian is fully optimized as a Progressive Web App.
 - **Core**: Next.js 15 (Turbopack)
 - **Canvas Engine**: Excalidraw (Heavily Custom Styled)
 - **Desktop**: Electron with SSE MCP Server
-- **Styling**: Vanilla CSS with Brutalist Tokens
+- **Styling**: Vanilla CSS with Minimalist Tokens
 - **Database**: Node.js SQLite (Experimental Sync)
 
 ---
