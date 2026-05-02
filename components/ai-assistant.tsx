@@ -15,6 +15,13 @@ export function AiBar({ onAddElements, onClose }: AiBarProps) {
   const [mounted, setMounted] = useState(false)
   const inputRef = useRef<HTMLTextAreaElement>(null)
 
+  const PRESETS = [
+    { label: 'Flowchart', icon: <Wand2 size={12} />, prompt: 'Create a clean flowchart for a basic user authentication flow.' },
+    { label: 'Mind Map', icon: <Wand2 size={12} />, prompt: 'Generate a mind map for a product launch strategy.' },
+    { label: 'Sequence', icon: <Wand2 size={12} />, prompt: 'Draw a sequence diagram for a client-server API request.' },
+    { label: 'Dashboard', icon: <Wand2 size={12} />, prompt: 'Design a simple dashboard layout with a header, sidebar, and 4 cards.' },
+  ]
+
   useEffect(() => {
     setMounted(true)
     return () => setMounted(false)
@@ -117,6 +124,21 @@ Always respond in ONLY valid JSON format.`
             <p className="eridian-ai-sidebar__hint">
               Describe what you want to draw. The AI will generate Excalidraw elements for you.
             </p>
+
+            <div className="eridian-ai-sidebar__presets">
+              {PRESETS.map((preset) => (
+                <button
+                  key={preset.label}
+                  type="button"
+                  className="eridian-ai-sidebar__preset-btn"
+                  onClick={() => setPrompt(preset.prompt)}
+                  disabled={isLoading}
+                >
+                  {preset.icon}
+                  {preset.label}
+                </button>
+              ))}
+            </div>
             
             <form onSubmit={handleSubmit} className="eridian-ai-sidebar__form">
               <div className="eridian-ai-sidebar__input-wrapper">
