@@ -367,6 +367,7 @@ export function Sketchboard() {
   const pdfInputRef = useRef<HTMLInputElement>(null)
   const pdfImportIdRef = useRef(0)
   const skipSaveRef = useRef(false)
+  const debounceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const progressStampRef = useRef(0)
   const [theme, setTheme] = useState<EridianTheme>('light')
   const [platform, setPlatform] = useState('web')
@@ -422,18 +423,38 @@ export function Sketchboard() {
     const shell = shellRef.current
     if (!shell) return
 
+    let observer: MutationObserver | null = null
+    let timeoutId: ReturnType<typeof setTimeout> | null = null
+
     const check = () => {
       const toolbar = findToolbar()
       if (toolbar && toolbar !== toolbarHost) {
         setToolbarHost(toolbar)
+        if (observer) {
+          observer.disconnect()
+          observer = null
+        }
       }
     }
 
     check()
-    const observer = new MutationObserver(check)
-    observer.observe(shell, { childList: true, subtree: true })
+    
+    if (!toolbarHost) {
+      observer = new MutationObserver(() => {
+        if (!timeoutId) {
+          timeoutId = setTimeout(() => {
+            check()
+            timeoutId = null
+          }, 300)
+        }
+      })
+      observer.observe(shell, { childList: true, subtree: true })
+    }
 
-    return () => observer.disconnect()
+    return () => {
+      observer?.disconnect()
+      if (timeoutId) clearTimeout(timeoutId)
+    }
   }, [findToolbar, toolbarHost])
 
   const persistScene = useCallback((
@@ -853,6 +874,9 @@ export function Sketchboard() {
                   currentItemBackgroundColor: '#dff7ff',
                   currentItemStrokeColor: '#132235',
                   showWelcomeScreen: true,
+                  defaultSidebarDockedPreference: false,
+                  openSidebar: null,
+                  openMenu: null,
                 },
               }
             }
@@ -871,6 +895,9 @@ export function Sketchboard() {
                 appState: {
                   ...appState,
                   showWelcomeScreen: !hasElements,
+                  defaultSidebarDockedPreference: false,
+                  openSidebar: null,
+                  openMenu: null,
                 },
               }
             } catch {
@@ -885,18 +912,24 @@ export function Sketchboard() {
             appState: Record<string, unknown>,
             files: Record<string, unknown>,
           ) => {
-            const normalizedScene = normalizeSceneEmbeddables(elements)
-
-            if (normalizedScene.didChange) {
-              excalidrawApiRef.current?.updateScene({
-                elements: normalizedScene.elements,
-                captureUpdate: 'EVENTUALLY',
-              })
+            if (debounceTimerRef.current) {
+              clearTimeout(debounceTimerRef.current)
             }
 
-            if (!skipSaveRef.current) {
-              persistScene(normalizedScene.elements, appState, files)
-            }
+            debounceTimerRef.current = setTimeout(() => {
+              const normalizedScene = normalizeSceneEmbeddables(elements)
+
+              if (normalizedScene.didChange) {
+                excalidrawApiRef.current?.updateScene({
+                  elements: normalizedScene.elements,
+                  captureUpdate: 'EVENTUALLY',
+                })
+              }
+
+              if (!skipSaveRef.current) {
+                persistScene(normalizedScene.elements, appState, files)
+              }
+            }, 600)
           }}
         />
       </main>
